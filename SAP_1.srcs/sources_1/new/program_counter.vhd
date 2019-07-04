@@ -12,27 +12,27 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity program_counter is
-    Port ( Cp_p : in STD_LOGIC;
-           Ep_p : in STD_LOGIC;
-           CLK_p : in STD_LOGIC;
-           CLR_p : in STD_LOGIC;
-           Q_p: out STD_LOGIC_VECTOR (3 downto 0));
+    Port ( Cp : in STD_LOGIC;
+           Ep : in STD_LOGIC;
+           CLK : in STD_LOGIC;
+           CLR : in STD_LOGIC;
+           Q : out STD_LOGIC_VECTOR (3 downto 0));
 end program_counter;
 
 architecture Behavioral of program_counter is
 
-signal Q_tmp_p : STD_LOGIC_VECTOR (3 downto 0);
+signal Q_tmp : STD_LOGIC_VECTOR (3 downto 0);
 
 begin
-    process(Cp_p, Ep_p, CLK_p, CLR_p)
+    process(Cp, Ep, CLK, CLR)
     begin
-        if CLR_p = '0' then
-            Q_tmp_p <= (Q_tmp_p'range => '0');
-        elsif (falling_edge(CLK_p) and Cp_p = '1') then
-            Q_tmp_p <= Q_tmp_p + 1; 
+        if CLR = '0' then
+            Q_tmp <= (Q_tmp'range => '0');
+        elsif (falling_edge(CLK) and Cp = '1') then
+            Q_tmp <= Q_tmp + 1; 
         end if; 
         
-        Q_p <= Q_tmp_p when Ep_p = '1' else (Q_p'range => 'Z'); 
+        Q <= Q_tmp when Ep = '1' else (Q'range => 'Z'); 
     
     end process; 
 

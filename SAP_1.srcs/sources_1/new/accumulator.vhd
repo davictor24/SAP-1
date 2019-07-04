@@ -11,30 +11,30 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity accumulator is
-    Port ( D_acc : in STD_LOGIC_VECTOR (7 downto 0);
-           CLK_acc : in STD_LOGIC;
-           La_acc : in STD_LOGIC;
-           Ea_acc : in STD_LOGIC;
-           CLR_acc : in STD_LOGIC;
-           Q_acc : out STD_LOGIC_VECTOR (7 downto 0);
-           Q_tri_acc : out STD_LOGIC_VECTOR (7 downto 0));
+    Port ( D : in STD_LOGIC_VECTOR (7 downto 0);
+           CLK : in STD_LOGIC;
+           La : in STD_LOGIC;
+           Ea : in STD_LOGIC;
+           CLR : in STD_LOGIC;
+           Q : out STD_LOGIC_VECTOR (7 downto 0);
+           Q_tri : out STD_LOGIC_VECTOR (7 downto 0));
 end accumulator;
 
 architecture Behavioral of accumulator is
 
-signal Q_tmp_acc : STD_LOGIC_VECTOR (7 downto 0);
+signal Q_tmp : STD_LOGIC_VECTOR (7 downto 0);
 
 begin
-    process(D_acc, CLK_acc, La_acc, Ea_acc, CLR_acc)
+    process(D, CLK, La, Ea, CLR)
     begin
-        if CLR_acc = '1' then
-            Q_tmp_acc <= (Q_tmp_acc'range => '0');
-        elsif (rising_edge(CLK_acc) and La_acc = '0') then
-            Q_tmp_acc <= D_acc; 
+        if CLR = '1' then
+            Q_tmp <= (Q_tmp'range => '0');
+        elsif (rising_edge(CLK) and La = '0') then
+            Q_tmp <= D; 
         end if; 
         
-        Q_acc <= Q_tmp_acc; 
-        Q_tri_acc <= Q_tmp_acc when Ea_acc = '1' else (Q_tri_acc'range => 'Z'); 
+        Q <= Q_tmp; 
+        Q_tri <= Q_tmp when Ea = '1' else (Q_tri'range => 'Z'); 
     
     end process; 
 

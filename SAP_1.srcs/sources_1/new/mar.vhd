@@ -11,27 +11,27 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity mar is
-    Port ( D_m : in STD_LOGIC_VECTOR (3 downto 0);
-           CLK_m : in STD_LOGIC;
-           Lm_m : in STD_LOGIC;
-           CLR_m : in STD_LOGIC;
-           Q_m : out STD_LOGIC_VECTOR (3 downto 0));
+    Port ( D : in STD_LOGIC_VECTOR (3 downto 0);
+           CLK : in STD_LOGIC;
+           Lm : in STD_LOGIC;
+           CLR : in STD_LOGIC;
+           Q : out STD_LOGIC_VECTOR (3 downto 0));
 end mar;
 
 architecture Behavioral of mar is
 
-signal Q_tmp_m : STD_LOGIC_VECTOR (3 downto 0);
+signal Q_tmp : STD_LOGIC_VECTOR (3 downto 0);
 
 begin
-    process(D_m, CLK_m, Lm_m, CLR_m)
+    process(D, CLK, Lm, CLR)
     begin
-        if CLR_m = '1' then
-            Q_tmp_m <= (Q_tmp_m'range => '0');
-        elsif (rising_edge(CLK_m) and Lm_m = '0') then
-            Q_tmp_m <= D_m; 
+        if CLR = '1' then
+            Q_tmp <= (Q_tmp'range => '0');
+        elsif (rising_edge(CLK) and Lm = '0') then
+            Q_tmp <= D; 
         end if; 
         
-        Q_m <= Q_tmp_m; 
+        Q <= Q_tmp; 
     
     end process; 
 
