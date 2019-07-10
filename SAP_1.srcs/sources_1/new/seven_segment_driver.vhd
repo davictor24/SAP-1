@@ -26,11 +26,13 @@ signal number_array : int_array := (others => 0);
 signal to_display : integer := 0; 
 signal refresh_counter : STD_LOGIC_VECTOR (17 downto 0);
 signal select_counter : STD_LOGIC_VECTOR (1 downto 0);
+signal x : int_array := (others => 0);
+signal y : int_array := (others => 0);
 
 begin
     radix <= 16 when hex_dec = '0' else 10; 
     number_int <= to_integer(unsigned(number));
-    
+
     process(clk)
     begin
         if (rising_edge(clk)) then
@@ -40,35 +42,36 @@ begin
     end process; 
     
     process(radix, number_int)
-    variable x : integer := number_int;
-    variable y : integer := x / radix; 
     begin
-        number_array(0) <= x - (y * 10);
-        x := y; 
-        y := x / radix; 
-        number_array(1) <= x - (y * 10);
-        x := y; 
-        y := x / radix; 
-        number_array(2) <= x - (y * 10);
-        x := y; 
-        y := x / radix; 
-        number_array(3) <= x - (y * 10);
+        x(0) <= number_int;
+        y(0) <= x(0) / radix; 
+        x(1) <= y(0); 
+        y(1) <= x(1) / radix; 
+        x(2) <= y(1); 
+        y(2) <= x(2) / radix; 
+        x(3) <= y(2); 
+        y(3) <= x(3) / radix; 
+        
+        number_array(0) <= x(0) - (y(0) * radix);
+        number_array(1) <= x(1) - (y(1) * radix);
+        number_array(2) <= x(2) - (y(2) * radix);
+        number_array(3) <= x(3) - (y(3) * radix);
     end process;
     
     process(select_counter)
     begin
         case select_counter is
         when "00" =>
-            display_select <= "0001"; 
+            display_select <= "1110"; 
             to_display <= number_array(0);
         when "01" =>
-            display_select <= "0010"; 
+            display_select <= "1101"; 
             to_display <= number_array(1);
         when "10" =>
-            display_select <= "0100"; 
+            display_select <= "1011"; 
             to_display <= number_array(2);
         when "11" =>
-            display_select <= "1000"; 
+            display_select <= "0111"; 
             to_display <= number_array(3);
         end case;
     end process;
@@ -76,22 +79,22 @@ begin
     process(to_display)
     begin
         case to_display is
-        when 0 => cathodes <= "0000001"; -- 0     
-        when 1 => cathodes <= "1001111"; -- 1 
-        when 2 => cathodes <= "0010010"; -- 2 
-        when 3 => cathodes <= "0000110"; -- 3 
-        when 4 => cathodes <= "1001100"; -- 4 
-        when 5 => cathodes <= "0100100"; -- 5 
-        when 6 => cathodes <= "0100000"; -- 6 
-        when 7 => cathodes <= "0001111"; -- 7 
+        when 0 => cathodes <= "1000000"; -- 0     
+        when 1 => cathodes <= "1111001"; -- 1 
+        when 2 => cathodes <= "0100100"; -- 2 
+        when 3 => cathodes <= "0110000"; -- 3 
+        when 4 => cathodes <= "0011001"; -- 4 
+        when 5 => cathodes <= "0010010"; -- 5 
+        when 6 => cathodes <= "0000010"; -- 6 
+        when 7 => cathodes <= "1111000"; -- 7 
         when 8 => cathodes <= "0000000"; -- 8     
-        when 9 => cathodes <= "0000100"; -- 9 
+        when 9 => cathodes <= "0010000"; -- 9 
         when 10 => cathodes <= "0001000"; -- A
-        when 11 => cathodes <= "1100000"; -- b
-        when 12 => cathodes <= "0110001"; -- C
-        when 13 => cathodes <= "1000010"; -- d
-        when 14 => cathodes <= "0110000"; -- E
-        when 15 => cathodes <= "0111000"; -- F
+        when 11 => cathodes <= "0000011"; -- b
+        when 12 => cathodes <= "1000110"; -- C
+        when 13 => cathodes <= "0100001"; -- d
+        when 14 => cathodes <= "0000110"; -- E
+        when 15 => cathodes <= "0001110"; -- F
         when others => cathodes <= "1111111"; -- blank
         end case;
     end process;

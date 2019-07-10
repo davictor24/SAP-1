@@ -35,7 +35,6 @@ begin
         
         Q <= Q_tmp; 
         Q_tri <= Q_tmp when Ea = '1' else (Q_tri'range => 'Z'); 
-    
     end process; 
 
 end Behavioral;
