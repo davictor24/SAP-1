@@ -63,101 +63,15 @@ proc step_failed { step } {
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 
-start_step init_design
-set ACTIVE_STEP init_design
-set rc [catch {
-  create_msg_db init_design.pb
-  set_param chipscope.maxJobs 2
-  set_param synth.incrementalSynthesisCache C:/Users/duroj/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14452-Victor/incrSyn
-  set_param xicom.use_bs_reader 1
-  create_project -in_memory -part xc7a35tcpg236-1
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/Documents/Vivado/SAP_1/SAP_1.cache/wt [current_project]
-  set_property parent.project_path D:/Documents/Vivado/SAP_1/SAP_1.xpr [current_project]
-  set_property ip_output_repo D:/Documents/Vivado/SAP_1/SAP_1.cache/ip [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet D:/Documents/Vivado/SAP_1/SAP_1.runs/synth_1/sap_1.dcp
-  read_xdc D:/Documents/Vivado/SAP_1/SAP_1.srcs/constrs_1/imports/XDC/Basys3_Master.xdc
-  link_design -top sap_1 -part xc7a35tcpg236-1
-  close_msg_db -file init_design.pb
-} RESULT]
-if {$rc} {
-  step_failed init_design
-  return -code error $RESULT
-} else {
-  end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force sap_1_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file sap_1_drc_opted.rpt -pb sap_1_drc_opted.pb -rpx sap_1_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
-start_step place_design
-set ACTIVE_STEP place_design
-set rc [catch {
-  create_msg_db place_design.pb
-  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
-    implement_debug_core 
-  } 
-  place_design 
-  write_checkpoint -force sap_1_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file sap_1_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file sap_1_utilization_placed.rpt -pb sap_1_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file sap_1_control_sets_placed.rpt"
-  close_msg_db -file place_design.pb
-} RESULT]
-if {$rc} {
-  step_failed place_design
-  return -code error $RESULT
-} else {
-  end_step place_design
-  unset ACTIVE_STEP 
-}
-
-start_step route_design
-set ACTIVE_STEP route_design
-set rc [catch {
-  create_msg_db route_design.pb
-  route_design 
-  write_checkpoint -force sap_1_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file sap_1_drc_routed.rpt -pb sap_1_drc_routed.pb -rpx sap_1_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file sap_1_methodology_drc_routed.rpt -pb sap_1_methodology_drc_routed.pb -rpx sap_1_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file sap_1_power_routed.rpt -pb sap_1_power_summary_routed.pb -rpx sap_1_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file sap_1_route_status.rpt -pb sap_1_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file sap_1_timing_summary_routed.rpt -pb sap_1_timing_summary_routed.pb -rpx sap_1_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file sap_1_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file sap_1_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file sap_1_bus_skew_routed.rpt -pb sap_1_bus_skew_routed.pb -rpx sap_1_bus_skew_routed.rpx"
-  close_msg_db -file route_design.pb
-} RESULT]
-if {$rc} {
-  write_checkpoint -force sap_1_routed_error.dcp
-  step_failed route_design
-  return -code error $RESULT
-} else {
-  end_step route_design
-  unset ACTIVE_STEP 
-}
-
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_param chipscope.maxJobs 2
+  set_param synth.incrementalSynthesisCache C:/Users/duroj/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14452-Victor/incrSyn
+  set_param xicom.use_bs_reader 1
+  open_checkpoint sap_1_routed.dcp
+  set_property webtalk.parent_dir D:/Documents/Vivado/SAP_1/SAP_1.cache/wt [current_project]
   catch { write_mem_info -force sap_1.mmi }
   write_bitstream -force sap_1.bit -bin_file
   catch {write_debug_probes -quiet -force sap_1}
