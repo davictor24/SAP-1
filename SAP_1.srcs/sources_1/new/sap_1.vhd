@@ -1,27 +1,29 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-
 entity sap_1 is
-    Port ( addr : in STD_LOGIC_VECTOR (3 downto 0);
-           data : in STD_LOGIC_VECTOR (7 downto 0);
-           prog_run : in STD_LOGIC;
-           hex_dec : in STD_LOGIC;
-           write : in STD_LOGIC;
-           clr : in STD_LOGIC;
-           reset : in STD_LOGIC;
-           clk : in STD_LOGIC;
-           cathodes : out STD_LOGIC_VECTOR (6 downto 0);
-           display_select : out STD_LOGIC_VECTOR (3 downto 0));
+    Port ( clk : in STD_LOGIC;
+           sw : in STD_LOGIC_VECTOR(15 downto 0); 
+           led : out STD_LOGIC_VECTOR(15 downto 0); 
+           seg : out STD_LOGIC_VECTOR(6 downto 0); 
+           an : out STD_LOGIC_VECTOR(3 downto 0);
+           btnL : in STD_LOGIC;
+           btnC : in STD_LOGIC;
+           btnR : in STD_LOGIC);
 end sap_1;
 
 architecture Behavioral of sap_1 is
 
--- output LEDs
-signal addr_led : STD_LOGIC_VECTOR (3 downto 0);
-signal data_led : STD_LOGIC_VECTOR (7 downto 0);
-signal prog_run_led : STD_LOGIC;
-signal hex_dec_led : STD_LOGIC;
+-- I/O
+signal addr : STD_LOGIC_VECTOR (3 downto 0);
+signal data : STD_LOGIC_VECTOR (7 downto 0);
+signal prog_run : STD_LOGIC;
+signal hex_dec : STD_LOGIC;
+signal write : STD_LOGIC;
+signal clr : STD_LOGIC;
+signal reset : STD_LOGIC;
+signal cathodes : STD_LOGIC_VECTOR (6 downto 0);
+signal display_select : STD_LOGIC_VECTOR (3 downto 0);
 
 -- control signals
 signal control_signals : STD_LOGIC_VECTOR (11 downto 0);
@@ -103,7 +105,7 @@ component instruction_register
            Q_tri : out STD_LOGIC_VECTOR (3 downto 0));
 end component; 
 
-component control_sequencer
+component controller_sequencer
     Port ( I : in STD_LOGIC_VECTOR (3 downto 0);
            CLK : in STD_LOGIC;
            CLR : in STD_LOGIC;
@@ -117,7 +119,7 @@ component accumulator
            La : in STD_LOGIC;
            Ea : in STD_LOGIC;
            CLR : in STD_LOGIC;
-           Q : out STD_LOGIC_VECTOR (7 downto 0);
+           Q : inout STD_LOGIC_VECTOR (7 downto 0);
            Q_tri : out STD_LOGIC_VECTOR (7 downto 0));
 end component; 
 
@@ -159,11 +161,17 @@ component edge_detector
 end component; 
 
 begin
-    -- output LEDs
-    addr_led <= addr; 
-    data_led <= data; 
-    prog_run_led <= prog_run; 
-    hex_dec_led <= hex_dec; 
+    -- I/O
+    addr <= sw(15 downto 12);
+    data <= sw(11 downto 4);
+    hex_dec <= sw(1);
+    prog_run <= sw(0);
+    clr <= btnL; 
+    write <= btnC;
+    reset <= btnR;
+    cathodes <= seg;
+    display_select <= an; 
+    led <= sw; 
     
     -- control signals
     Cp <= control_signals(11); 
@@ -204,7 +212,7 @@ begin
     U1: mar port map(D_mar, CLK_p, Lm, RESET_p, Q_mar);
     U2: ram port map(addr_ram, data, CLK_ram, str_ram, ld_ram, clr_ram, W_bus);
     U3: instruction_register port map(W_bus, CLK_p, Li, Ei, RESET_p, I_control_sequencer, Q_tri_instruction_register);
-    U4: control_sequencer port map(I_control_sequencer, CLK_p, RESET_p, control_signals, HLT);
+    U4: controller_sequencer port map(I_control_sequencer, CLK_p, RESET_p, control_signals, HLT);
     U5: accumulator port map(W_bus, CLK_p, La, Ea, RESET_p, A_adder_subtractor, Q_tri_accumulator);
     U6: adder_subtractor port map(A_adder_subtractor, B_adder_subtractor, S_adder_subtractor, Su, Eu);
     U7: b_register port map(W_bus, CLK_p, Lb, RESET_p, B_adder_subtractor);

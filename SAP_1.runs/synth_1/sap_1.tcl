@@ -18,7 +18,7 @@ proc create_report { reportName command } {
   }
 }
 set_param chipscope.maxJobs 2
-set_param synth.incrementalSynthesisCache C:/Users/duroj/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14452-Victor/incrSyn
+set_param synth.incrementalSynthesisCache C:/Users/duroj/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-9144-Victor/incrSyn
 set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
@@ -50,6 +50,7 @@ read_vhdl -vhdl2008 -library xil_defaultlib {
   D:/Documents/Vivado/SAP_1/SAP_1.srcs/sources_1/new/instruction_register.vhd
   D:/Documents/Vivado/SAP_1/SAP_1.srcs/sources_1/new/output_register.vhd
   D:/Documents/Vivado/SAP_1/SAP_1.srcs/sources_1/new/b_register.vhd
+  D:/Documents/Vivado/SAP_1/SAP_1.srcs/sources_1/new/controller_sequencer.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

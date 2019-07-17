@@ -3,7 +3,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-
 entity seven_segment_driver is
     Port ( number : in STD_LOGIC_VECTOR (7 downto 0);
            hex_dec : in STD_LOGIC;
@@ -13,17 +12,16 @@ entity seven_segment_driver is
 end seven_segment_driver;
 
 architecture Behavioral of seven_segment_driver is
-
-type int_array is array(0 to 3) of integer;
-
-signal radix : integer; 
-signal number_int : integer; 
-signal number_array : int_array := (others => 0);
-signal to_display : integer := 0; 
-signal refresh_counter : STD_LOGIC_VECTOR (17 downto 0);
-signal select_counter : STD_LOGIC_VECTOR (1 downto 0);
-signal x : int_array := (others => 0);
-signal y : int_array := (others => 0);
+    type int_array is array(0 to 3) of integer;
+    
+    signal radix : integer; 
+    signal number_int : integer; 
+    signal number_array : int_array := (others => 0);
+    signal to_display : integer := 0; 
+    signal refresh_counter : STD_LOGIC_VECTOR (17 downto 0);
+    signal select_counter : STD_LOGIC_VECTOR (1 downto 0);
+    signal x : int_array := (others => 0);
+    signal y : int_array := (others => 0);
 
 begin
     radix <= 16 when hex_dec = '0' else 10; 

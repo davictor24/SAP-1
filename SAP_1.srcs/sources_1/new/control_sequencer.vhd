@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-
 entity control_sequencer is
     Port ( I : in STD_LOGIC_VECTOR (3 downto 0);
            CLK : in STD_LOGIC;
@@ -53,7 +52,7 @@ end component;
 begin
     CLK_n <= not CLK;
     CLR_n <= not CLR; 
-    HLT <= I(3) and I(2) and (not I(1)) and (not I(0)); 
+    HLT <= I(3) and (not I(2)) and I(1) and (not I(0)); 
     feedback <= not ((not control_word_temp(11)) 
                 and (not control_word_temp(10)) 
                 and control_word_temp(9) 

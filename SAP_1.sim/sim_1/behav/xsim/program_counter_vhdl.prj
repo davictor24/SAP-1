@@ -1,0 +1,22 @@
+# compile vhdl design source files
+vhdl2008 xil_defaultlib  \
+"../../../../SAP_1.srcs/sources_1/new/sap_1.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/edge_detector.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/presettable_counter.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/ring_counter.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/rom1.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/rom2.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/control_sequencer.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/ram.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/seven_segment_driver.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/accumulator.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/program_counter.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/adder_subtractor.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/mar.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/instruction_register.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/output_register.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/b_register.vhd" \
+"../../../../SAP_1.srcs/sources_1/new/controller_sequencer.vhd" \
+
+# Do not sort compile order
+nosort

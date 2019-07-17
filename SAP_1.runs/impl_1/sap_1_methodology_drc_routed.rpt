@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Fri Jul 12 13:51:04 2019
+| Date         : Wed Jul 17 03:10:23 2019
 | Host         : Victor running 64-bit major release  (build 9200)
 | Command      : report_methodology -file sap_1_methodology_drc_routed.rpt -pb sap_1_methodology_drc_routed.pb -rpx sap_1_methodology_drc_routed.rpx
 | Design       : sap_1
@@ -23,21 +23,21 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 84
+             Violations found: 94
 +-----------+------------------+-------------------------------+------------+
 | Rule      | Severity         | Description                   | Violations |
 +-----------+------------------+-------------------------------+------------+
 | TIMING-14 | Critical Warning | LUT on the clock tree         | 1          |
 | TIMING-17 | Critical Warning | Non-clocked sequential cell   | 64         |
-| LUTAR-1   | Warning          | LUT drives async reset alert  | 2          |
-| TIMING-18 | Warning          | Missing input or output delay | 17         |
+| LUTAR-1   | Warning          | LUT drives async reset alert  | 1          |
+| TIMING-18 | Warning          | Missing input or output delay | 28         |
 +-----------+------------------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 TIMING-14#1 Critical Warning
 LUT on the clock tree  
-The LUT U4/U4/T_temp[5]_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+The LUT U4/Q_tmp[3]_i_3 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
 Related violations: <none>
 
 TIMING-17#1 Critical Warning
@@ -365,94 +365,144 @@ LUT drives async reset alert
 LUT cell U2/memory[0][3]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U2/memory_reg[0][0]/CLR, U2/memory_reg[0][1]/CLR, U2/memory_reg[0][2]/CLR, U2/memory_reg[0][3]/CLR, U2/memory_reg[10][0]/CLR, U2/memory_reg[10][1]/CLR, U2/memory_reg[10][2]/CLR, U2/memory_reg[10][3]/CLR, U2/memory_reg[11][0]/CLR, U2/memory_reg[11][1]/CLR, U2/memory_reg[11][2]/CLR, U2/memory_reg[11][3]/CLR, U2/memory_reg[12][0]/CLR, U2/memory_reg[12][1]/CLR, U2/memory_reg[12][2]/CLR (the first 15 of 64 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
-LUTAR-1#2 Warning
-LUT drives async reset alert  
-LUT cell U4/U2/T_temp[5]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U4/U4/T_temp_reg[0]/CLR, U4/U4/T_temp_reg[1]/CLR, U4/U4/T_temp_reg[2]/CLR, U4/U4/T_temp_reg[3]/CLR, U4/U4/T_temp_reg[4]/CLR, U4/U4/T_temp_reg[5]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
 TIMING-18#1 Warning
 Missing input or output delay  
-An input delay is missing on addr[0] relative to clock(s) sys_clk_pin
+An input delay is missing on btnR relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#2 Warning
 Missing input or output delay  
-An input delay is missing on addr[1] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[0] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#3 Warning
 Missing input or output delay  
-An input delay is missing on addr[2] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[10] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
-An input delay is missing on addr[3] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[11] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#5 Warning
 Missing input or output delay  
-An input delay is missing on prog_run relative to clock(s) sys_clk_pin
+An input delay is missing on sw[12] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#6 Warning
 Missing input or output delay  
-An input delay is missing on reset relative to clock(s) sys_clk_pin
+An input delay is missing on sw[13] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#7 Warning
 Missing input or output delay  
-An output delay is missing on cathodes[0] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[14] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#8 Warning
 Missing input or output delay  
-An output delay is missing on cathodes[1] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[15] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#9 Warning
 Missing input or output delay  
-An output delay is missing on cathodes[2] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[1] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#10 Warning
 Missing input or output delay  
-An output delay is missing on cathodes[3] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[2] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#11 Warning
 Missing input or output delay  
-An output delay is missing on cathodes[4] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[3] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#12 Warning
 Missing input or output delay  
-An output delay is missing on cathodes[5] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[4] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#13 Warning
 Missing input or output delay  
-An output delay is missing on cathodes[6] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[5] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#14 Warning
 Missing input or output delay  
-An output delay is missing on display_select[0] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[6] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#15 Warning
 Missing input or output delay  
-An output delay is missing on display_select[1] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[7] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#16 Warning
 Missing input or output delay  
-An output delay is missing on display_select[2] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[8] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#17 Warning
 Missing input or output delay  
-An output delay is missing on display_select[3] relative to clock(s) sys_clk_pin
+An input delay is missing on sw[9] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An output delay is missing on an[0] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An output delay is missing on an[1] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An output delay is missing on an[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An output delay is missing on an[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An output delay is missing on seg[0] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#23 Warning
+Missing input or output delay  
+An output delay is missing on seg[1] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#24 Warning
+Missing input or output delay  
+An output delay is missing on seg[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#25 Warning
+Missing input or output delay  
+An output delay is missing on seg[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#26 Warning
+Missing input or output delay  
+An output delay is missing on seg[4] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#27 Warning
+Missing input or output delay  
+An output delay is missing on seg[5] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#28 Warning
+Missing input or output delay  
+An output delay is missing on seg[6] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 

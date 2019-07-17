@@ -2,7 +2,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-
 entity rom1 is
     Port ( addr : in STD_LOGIC_VECTOR (3 downto 0);
            Q : out STD_LOGIC_VECTOR (3 downto 0));
@@ -24,10 +23,10 @@ constant memory: mem := (
     8 => "0000",
     9 => "0000",
     10 => "0000",   -- HLT
-    11 => "0011",   -- LDA
-    12 => "0000",
-    13 => "0110",   -- ADD
-    14 => "0000",
+    11 => "0000",
+    12 => "0011",   -- LDA
+    13 => "0000",
+    14 => "0110",   -- ADD
     15 => "0000",
     others => "0000"
 );

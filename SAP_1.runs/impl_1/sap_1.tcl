@@ -68,7 +68,7 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 2
-  set_param synth.incrementalSynthesisCache C:/Users/duroj/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14452-Victor/incrSyn
+  set_param synth.incrementalSynthesisCache C:/Users/duroj/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-9144-Victor/incrSyn
   set_param xicom.use_bs_reader 1
   open_checkpoint sap_1_routed.dcp
   set_property webtalk.parent_dir D:/Documents/Vivado/SAP_1/SAP_1.cache/wt [current_project]

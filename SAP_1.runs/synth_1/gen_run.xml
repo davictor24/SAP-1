@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1562935729">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1563329157">
   <File Type="PA-TCL" Name="sap_1.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="sap_1_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="sap_1_reports.tcl"/>
@@ -102,6 +102,12 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/b_register.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/controller_sequencer.vhd">
       <FileInfo SFType="VHDL2008">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
