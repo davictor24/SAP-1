@@ -1,0 +1,23 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto e89ca1b8bf08401d86fea87a84c8990c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ram_func_impl xil_defaultlib.ram -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="01010000010111110011...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="00000000010100110000...]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="0010")(0,3)\]
+Compiling architecture fdce_v of entity unisim.FDCE [fdce_default]
+Compiling architecture structure of entity xil_defaultlib.ram
+Built simulation snapshot ram_func_impl

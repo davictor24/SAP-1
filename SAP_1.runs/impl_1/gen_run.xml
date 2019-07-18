@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1563329325">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1563414429">
   <File Type="BITSTR-BMM" Name="sap_1_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="sap_1_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="sap_1_timing_summary_init.rpt"/>
@@ -72,42 +72,6 @@
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/sap_1.vhd">
-      <FileInfo SFType="VHDL2008">
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/edge_detector.vhd">
-      <FileInfo SFType="VHDL2008">
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/presettable_counter.vhd">
-      <FileInfo SFType="VHDL2008">
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/ring_counter.vhd">
-      <FileInfo SFType="VHDL2008">
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/rom1.vhd">
-      <FileInfo SFType="VHDL2008">
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/rom2.vhd">
-      <FileInfo SFType="VHDL2008">
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/control_sequencer.vhd">
       <FileInfo SFType="VHDL2008">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

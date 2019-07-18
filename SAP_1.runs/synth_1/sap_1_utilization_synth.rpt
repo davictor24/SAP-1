@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Wed Jul 17 03:07:33 2019
+| Date         : Thu Jul 18 02:46:43 2019
 | Host         : Victor running 64-bit major release  (build 9200)
 | Command      : report_utilization -file sap_1_utilization_synth.rpt -pb sap_1_utilization_synth.pb
 | Design       : sap_1
@@ -30,12 +30,12 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             | 2051 |     0 |     20800 |  9.86 |
-|   LUT as Logic          | 2051 |     0 |     20800 |  9.86 |
+| Slice LUTs*             | 2092 |     0 |     20800 | 10.06 |
+|   LUT as Logic          | 2092 |     0 |     20800 | 10.06 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |  113 |     0 |     41600 |  0.27 |
-|   Register as Flip Flop |  113 |     0 |     41600 |  0.27 |
-|   Register as Latch     |    0 |     0 |     41600 |  0.00 |
+| Slice Registers         |  237 |     0 |     41600 |  0.57 |
+|   Register as Flip Flop |  193 |     0 |     41600 |  0.46 |
+|   Register as Latch     |   44 |     0 |     41600 |  0.11 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
@@ -55,7 +55,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 95    |          Yes |           - |        Reset |
+| 219   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 18    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -116,7 +116,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    2 |     0 |        32 |  6.25 |
+| BUFGCTRL   |    3 |     0 |        32 |  9.38 |
 | BUFIO      |    0 |     0 |        20 |  0.00 |
 | MMCME2_ADV |    0 |     0 |         5 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |         5 |  0.00 |
@@ -150,19 +150,20 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     | 1651 |                 LUT |
+| LUT2     | 1673 |                 LUT |
 | CARRY4   |  556 |          CarryLogic |
-| LUT3     |  271 |                 LUT |
-| LUT1     |  145 |                 LUT |
-| FDCE     |   95 |        Flop & Latch |
-| LUT6     |   62 |                 LUT |
-| LUT4     |   39 |                 LUT |
+| LUT3     |  274 |                 LUT |
+| FDCE     |  175 |        Flop & Latch |
+| LUT1     |  144 |                 LUT |
+| LUT6     |   84 |                 LUT |
+| LDCE     |   44 |        Flop & Latch |
+| LUT4     |   38 |                 LUT |
+| LUT5     |   34 |                 LUT |
 | OBUF     |   27 |                  IO |
-| LUT5     |   21 |                 LUT |
 | IBUF     |   20 |                  IO |
 | FDRE     |   18 |        Flop & Latch |
 | DSP48E1  |    8 |    Block Arithmetic |
-| BUFG     |    2 |               Clock |
+| BUFG     |    3 |               Clock |
 +----------+------+---------------------+
 
 

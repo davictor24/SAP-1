@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Jul 17 15:16:35 2019
+# Process ID: 16068
+# Current directory: D:/Documents/Vivado/SAP_1/SAP_1.sim/sim_1/impl/func/xsim
+# Command line: wbtcv.exe -mode batch -source D:/Documents/Vivado/SAP_1/SAP_1.sim/sim_1/impl/func/xsim/xsim.dir/ram_func_impl/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/Documents/Vivado/SAP_1/SAP_1.sim/sim_1/impl/func/xsim/webtalk.log
+# Journal file: D:/Documents/Vivado/SAP_1/SAP_1.sim/sim_1/impl/func/xsim\webtalk.jou
+#-----------------------------------------------------------
+source D:/Documents/Vivado/SAP_1/SAP_1.sim/sim_1/impl/func/xsim/xsim.dir/ram_func_impl/webtalk/xsim_webtalk.tcl -notrace

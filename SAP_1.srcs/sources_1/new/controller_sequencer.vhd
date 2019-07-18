@@ -71,14 +71,16 @@ begin
             T <= 0; 
             addr2 <= 0; 
         elsif falling_edge(CLK) then
-            if T = 5 then
+            if T = 5 or rom2(addr2 + 1) = "001111100011" then
+                T <= 0;
                 addr2 <= 0; 
             elsif T = 2 then
+                T <= (T + 1) mod 6; 
                 addr2 <= to_integer(unsigned(data1));
             else 
+                T <= (T + 1) mod 6; 
                 addr2 <= addr2 + 1;
             end if;
-            T <= (T + 1) mod 6; 
         end if;
     end process;
 

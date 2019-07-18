@@ -1,0 +1,11 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/Vivado/SAP_1/SAP_1.sim/sim_1/impl/func/xsim/ram_func_impl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'accumulator'
+INFO: [VRFC 10-3107] analyzing entity 'b_register'
+INFO: [VRFC 10-3107] analyzing entity 'controller_sequencer'
+INFO: [VRFC 10-3107] analyzing entity 'instruction_register'
+INFO: [VRFC 10-3107] analyzing entity 'mar'
+INFO: [VRFC 10-3107] analyzing entity 'output_register'
+INFO: [VRFC 10-3107] analyzing entity 'program_counter'
+INFO: [VRFC 10-3107] analyzing entity 'ram'
+INFO: [VRFC 10-3107] analyzing entity 'seven_segment_driver'
+INFO: [VRFC 10-3107] analyzing entity 'sap_1'

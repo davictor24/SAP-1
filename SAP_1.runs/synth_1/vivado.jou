@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Wed Jul 17 03:06:01 2019
-# Process ID: 6408
-# Current directory: D:/Documents/Vivado/SAP_1/SAP_1.runs/synth_1
+# Start of session at: Thu Jul 18 02:45:38 2019
+# Process ID: 11680
+# Current directory: D:/Documents/Vivado/SAP_1_Copy/SAP_1.runs/synth_1
 # Command line: vivado.exe -log sap_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sap_1.tcl
-# Log file: D:/Documents/Vivado/SAP_1/SAP_1.runs/synth_1/sap_1.vds
-# Journal file: D:/Documents/Vivado/SAP_1/SAP_1.runs/synth_1\vivado.jou
+# Log file: D:/Documents/Vivado/SAP_1_Copy/SAP_1.runs/synth_1/sap_1.vds
+# Journal file: D:/Documents/Vivado/SAP_1_Copy/SAP_1.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source sap_1.tcl -notrace
