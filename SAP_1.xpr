@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="40" Path="D:/Documents/Vivado/SAP_1_Copy/SAP_1.xpr">
+<Project Version="7" Minor="40" Path="D:/Documents/Vivado/SAP_1/SAP_1.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="e89ca1b8bf08401d86fea87a84c8990c"/>
