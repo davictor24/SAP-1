@@ -65,6 +65,8 @@ architecture Behavioral of sap_1 is
     signal str_ram : STD_LOGIC;
     signal ld_ram : STD_LOGIC;
     signal clr_ram : STD_LOGIC;
+    signal hex_dec_new : STD_LOGIC; 
+    signal number_seven_segment_driver : STD_LOGIC_VECTOR (11 downto 0);
     signal I_controller_sequencer : STD_LOGIC_VECTOR (3 downto 0);
     signal A_adder_subtractor : STD_LOGIC_VECTOR (7 downto 0);
     signal B_adder_subtractor : STD_LOGIC_VECTOR (7 downto 0);
@@ -149,7 +151,7 @@ architecture Behavioral of sap_1 is
     end component; 
     
     component seven_segment_driver
-        Port ( number : in STD_LOGIC_VECTOR (7 downto 0);
+        Port ( number : in STD_LOGIC_VECTOR (11 downto 0);
                hex_dec : in STD_LOGIC;
                clk : in STD_LOGIC;
                cathodes : out STD_LOGIC_VECTOR (6 downto 0);
@@ -228,6 +230,8 @@ begin
     str_ram <= not prog_run; 
     ld_ram <= '0' when prog_run = '0' else not CE; 
     clr_ram <= clr and (not prog_run); 
+    hex_dec_new <= '0' when prog_run = '0' else hex_dec; 
+    number_seven_segment_driver <= addr & data when prog_run = '0' else "0000" & Q_output_register;
     
     -- maps
     U0: program_counter port map(Cp, Ep, CLK_p, RESET_p, Q_program_counter);
@@ -239,6 +243,6 @@ begin
     U6: adder_subtractor port map(A_adder_subtractor, B_adder_subtractor, S_adder_subtractor, Su, Eu);
     U7: b_register port map(D_b_register, CLK_p, Lb, RESET_p, B_adder_subtractor);
     U8: output_register port map(D_output_register, CLK_p, Lo, RESET_p, Q_output_register);
-    U9: seven_segment_driver port map(Q_output_register, hex_dec, clk, cathodes, display_select);
+    U9: seven_segment_driver port map(number_seven_segment_driver, hex_dec_new, clk, cathodes, display_select);
 
 end Behavioral;

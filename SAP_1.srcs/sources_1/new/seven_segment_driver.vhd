@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity seven_segment_driver is
-    Port ( number : in STD_LOGIC_VECTOR (7 downto 0);
+    Port ( number : in STD_LOGIC_VECTOR (11 downto 0);
            hex_dec : in STD_LOGIC;
            clk : in STD_LOGIC;
            cathodes : out STD_LOGIC_VECTOR (6 downto 0);

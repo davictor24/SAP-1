@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/Documents/Vivado/SAP_1_Copy/SAP_1.runs/synth_1'
+HD_PWD='D:/Documents/Vivado/SAP_1/SAP_1.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

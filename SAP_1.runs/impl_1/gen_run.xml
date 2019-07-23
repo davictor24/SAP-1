@@ -1,50 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1563414429">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1563884776">
+  <File Type="BITSTR-BMM" Name="sap_1_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="sap_1_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="sap_1_timing_summary_init.rpt"/>
   <File Type="ROUTE-PWR" Name="sap_1_power_routed.rpt"/>
   <File Type="PA-TCL" Name="sap_1.tcl"/>
-  <File Type="BITSTR-BMM" Name="sap_1_bd.bmm"/>
+  <File Type="OPT-TIMING" Name="sap_1_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="sap_1_opt.dcp"/>
   <File Type="ROUTE-PWR-SUM" Name="sap_1_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="sap_1_reports.tcl"/>
-  <File Type="OPT-DCP" Name="sap_1_opt.dcp"/>
   <File Type="OPT-DRC" Name="sap_1_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="sap_1.hwdef"/>
   <File Type="PWROPT-DCP" Name="sap_1_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="sap_1_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="sap_1_timing_summary_pwropted.rpt"/>
   <File Type="PLACE-DCP" Name="sap_1_placed.dcp"/>
   <File Type="PLACE-IO" Name="sap_1_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="sap_1_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="sap_1_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="sap_1_utilization_placed.pb"/>
   <File Type="PLACE-CTRL" Name="sap_1_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="sap_1_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="sap_1_incremental_reuse_pre_placed.rpt"/>
   <File Type="BG-BGN" Name="sap_1.bgn"/>
+  <File Type="PLACE-TIMING" Name="sap_1_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="sap_1_postplace_pwropt.dcp"/>
   <File Type="BG-BIN" Name="sap_1.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="sap_1_timing_summary_postplace_pwropted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="sap_1_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="sap_1_drc_physopted.rpt"/>
   <File Type="BITSTR-MSK" Name="sap_1.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="sap_1_timing_summary_physopted.rpt"/>
   <File Type="ROUTE-ERROR-DCP" Name="sap_1_routed_error.dcp"/>
   <File Type="ROUTE-DCP" Name="sap_1_routed.dcp"/>
   <File Type="ROUTE-BLACKBOX-DCP" Name="sap_1_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="sap_1_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="sap_1_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="sap_1_drc_routed.rpx"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="sap_1.ltx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="sap_1_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="sap_1_drc_routed.rpx"/>
   <File Type="BITSTR-MMI" Name="sap_1.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="sap_1_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="sap_1_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="sap_1_methodology_drc_routed.pb"/>
   <File Type="BITSTR-SYSDEF" Name="sap_1.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="sap_1_methodology_drc_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="sap_1_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="sap_1_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="sap_1_route_status.pb"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="sap_1_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="sap_1_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="sap_1_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="sap_1_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="sap_1_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="sap_1_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="sap_1_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="sap_1_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="sap_1_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="sap_1_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="sap_1_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="sap_1_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="sap_1_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="sap_1_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="sap_1_bus_skew_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="sap_1.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="sap_1_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-RBT" Name="sap_1.rbt"/>
   <File Type="BITSTR-NKY" Name="sap_1.nky"/>
   <File Type="BG-DRC" Name="sap_1.drc"/>
